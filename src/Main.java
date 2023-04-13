@@ -31,8 +31,8 @@ public class Main {
         }
 
         List<String> workPeople =persons.stream()
-                .filter(person -> person.getSex().equals(Sex.WOMAN) && person.getAge() >= 18 && person.getAge() <= 60)
-                .filter(person -> person.getSex().equals(Sex.MAN) && person.getAge() >= 18 && person.getAge() <= 65)
+                .filter(person -> person.getSex().equals(Sex.WOMAN) && person.getAge() >= 18 && person.getAge() <= 60 || person.getSex().equals(Sex.MAN) && person.getAge() >= 18 && person.getAge() <= 65)
+                //.filter(person -> person.getSex().equals(Sex.MAN) && person.getAge() >= 18 && person.getAge() <= 65)
                 .sorted(Comparator.comparing(person -> person.getFamily()))
                 .map(Person::getFamily)
                 .collect(Collectors.toList());
